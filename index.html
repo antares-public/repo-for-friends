@@ -5,57 +5,12 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./style.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap" rel="stylesheet" >
   <title>Document</title>
 </head>
-<style>
-  body {
-    font-family: 'Roboto', sans-serif;
-
-    display: flex;
-    height: 100vh;
-    align-items: center;
-    justify-content: center;
-    overflow: hidden;
-  }
-
-  .lol {
-    display: none;
-    position: absolute;
-    top: 0;
-    left: 0;
-    z-index: 1000;
-
-    width: 100vw;
-    height: 100vh;
-  }
-
-  button {
-    border: 4px solid black;
-    padding: 10px 20px;
-    background-color: white;
-
-    color: black;
-    border-radius: 5px;
-
-    transition: all 0.5s ease-in-out;
-  }
-
-  button:first-child {
-    padding: 10px 50px;
-    background-color: black;
-    color: white;
-  }
-
-  button:first-child:hover {
-    border: 4px solid black;
-    background-color: white;
-    color: black;
-  }
-</style>
-
 <body>
   <main>
     <h1>Ты долбаеб?</h1>
@@ -67,50 +22,7 @@
     <img class="lol" id="lol" src="./images/pngwing.png" />
   </main>
 
-  <script>
-    function getCoords(elem) {
-      let box = elem.getBoundingClientRect();
-
-      return {
-        top: box.top + window.pageYOffset,
-        right: box.right + window.pageXOffset,
-        bottom: box.bottom + window.pageYOffset,
-        left: box.left + window.pageXOffset
-      };
-    }
-
-    const funny_button = document.getElementById('funny_button')
-    const allow = document.getElementById('allow')
-    const lol = document.getElementById('lol')
-
-    allow.addEventListener('click', () => {
-      lol.style.display = 'block'
-    })
-
-    funny_button.addEventListener('click', () => {
-      const { left, top } = getCoords(funny_button)
-
-      const screenWidth = window.innerWidth
-      const screenHeight = window.innerHeight
-
-      const leftPosition = left + Math.floor(Math.random() * (100 - (-100)) + (-100))
-      const topPosition = top + Math.floor(Math.random() * (100 - (-100)) + (-100))
-
-      funny_button.style.position = 'absolute'
-      funny_button.style.left = (left > 300
-        ? leftPosition - 100
-          : left < 100
-          ? leftPosition + 100
-        : leftPosition) + 'px'
-
-      funny_button.style.top = (top > 300
-        ? topPosition - 100
-          : top < 100
-          ? topPosition + 100
-        : topPosition) + 'px'
-    });
-
-  </script>
+  <script src="./app.js"></script>
 </body>
 
 </html>
